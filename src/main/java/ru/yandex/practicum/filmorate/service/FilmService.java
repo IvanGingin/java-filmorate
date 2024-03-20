@@ -1,5 +1,10 @@
 package ru.yandex.practicum.filmorate.service;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.yandex.practicum.filmorate.exception.ResourceNotFoundException;
@@ -7,12 +12,6 @@ import ru.yandex.practicum.filmorate.exception.ValidationException;
 import ru.yandex.practicum.filmorate.model.Film;
 import ru.yandex.practicum.filmorate.storage.FilmStorage;
 
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 @Service
 public class FilmService {
@@ -70,6 +69,7 @@ public class FilmService {
             return films;
         }
     }
+
     private void validateFilm(Film film) {
         if (film.getName() == null || film.getName().isEmpty()) {
             throw new ValidationException("название не может быть пустым.");
