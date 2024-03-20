@@ -13,10 +13,6 @@ public class FilmControllerTest {
 
     private FilmController filmController;
 
-    @BeforeEach
-    public void setUp() {
-        filmController = new FilmController();
-    }
 
     @Test
     public void addFilm_EmptyNameThrowsValidationException() {
