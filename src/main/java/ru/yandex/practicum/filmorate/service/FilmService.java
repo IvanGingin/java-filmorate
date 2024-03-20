@@ -44,12 +44,11 @@ public class FilmService {
     public void addLike(int filmId, int userId) {
         Film film = filmStorage.getFilmById(filmId);
         if (film == null) {
-            throw new ValidationException ("Фильм с ID " + filmId + " не найден");
+            throw new ValidationException("Фильм с ID " + filmId + " не найден");
         }
         film.getLikes().add(userId);
         filmStorage.updateFilm(film);
     }
-
 
 
     public void removeLike(int filmId, int userId) {
@@ -75,14 +74,18 @@ public class FilmService {
         if (film.getName() == null || film.getName().isEmpty()) {
             throw new ValidationException("название не может быть пустым.");
         }
+
         if (film.getDescription().length() > 200) {
             throw new ValidationException("Описание больше 200 символов.");
         }
+
         if (film.getReleaseDate().isBefore(LocalDate.of(1895, 12, 28))) {
             throw new ValidationException("дата релиза раньше 28 декабря 1895 года.");
         }
+
         if (film.getDuration() <= 0) {
             throw new ValidationException("продолжительность фильма должна быть положительной.");
+
         }
     }
 }

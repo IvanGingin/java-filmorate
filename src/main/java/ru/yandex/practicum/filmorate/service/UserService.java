@@ -110,7 +110,6 @@ public class UserService {
         if (userStorage.getUserById(userId) == null) {
             throw new ValidationException("Пользователь с ID=" + userId + " не найден.");
 
-
         }
 
     }
